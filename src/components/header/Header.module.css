@@ -3,6 +3,7 @@
   background: var(--gray-700);
   display: flex;
   align-items: center;
+  width: 100%;
   
   justify-content: center;  
 }

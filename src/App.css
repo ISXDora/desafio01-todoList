@@ -31,3 +31,11 @@ body, input, button {
   font-weight: 400;
   font-size: 1rem;
 }
+
+.containerApp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+  height: 100vh;
+}

@@ -1,0 +1,13 @@
+.tasksContainerEmpty {
+  width: 100%;
+  text-align: center;
+  height: 15.25rem;
+  padding: 64px 24px;
+  color: var(--gray-300)
+}
+.emptyPot {
+   margin-bottom: 1rem;
+}
+.emptyPot + p {
+  font-weight: 700;
+}
