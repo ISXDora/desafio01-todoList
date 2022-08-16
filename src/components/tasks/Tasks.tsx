@@ -1,5 +1,6 @@
 import React from "react";
 import { NewTaks } from "../newTask/NewTask";
+import { Task } from "../task/Task";
 import { TasksEmpty } from "../tasksEmpty/TasksEmpty";
 import styles from "./Tasks.module.css";
 
@@ -19,7 +20,8 @@ export const Tasks: React.FC = () => {
         </div>
       </div>
       <div className={styles.tasksContainer}>
-        <TasksEmpty />
+        <Task />
+        <Task />
       </div>
 
     </section>
