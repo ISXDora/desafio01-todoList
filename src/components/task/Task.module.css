@@ -75,6 +75,9 @@
   transition: 0.2s;
   
 }
+.container  p  {
+  text-decoration: none;
+}
 
 .container label input[type="checkbox"]:checked {
 color: white;
@@ -88,6 +91,12 @@ background-color: var(--purple-dark);
 
 .container label input[type="checkbox"]:checked + span {
   display: block;
+}
+
+
+
+.container label input[type="checkbox"]:checked + span + p{
+  text-decoration: line-through;
 }
 
 
