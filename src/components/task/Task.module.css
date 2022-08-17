@@ -10,7 +10,8 @@
   display: flex;
   flex-direction: row;
   gap: 0.75rem;
-  align-items: center;
+  align-items: stretch;
+  justify-items: center;
   flex: 1.5rem 1fr 1.5rem;
 }
 .container + .container {
@@ -23,4 +24,75 @@
 }
 .container p {
   width: 100%;
+  font-size: 0.875rem;
+  line-height: 1.225rem;
+  color: var(gray-100)
+}
+
+.container button{
+  background: transparent;
+  border: none;
+  width: 24px;
+  height: 24px;
+  color: var(--gray-300);
+  border-radius: 4px;
+  cursor: pointer;
+  align-items: center;
+
+  transition: ease-in 0.3s;
+}
+
+.container button:hover {
+
+  background: var(--gray-400);
+  color: var(--danger)
+
+}
+
+.container > label {
+  width: 24px;
+  height: 24px;
+  padding: 3.27px;
+  align-items: center;
+  position: relative;
+
+}
+.container > label span {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+.container label input[type="checkbox"] {
+  appearance: none;
+  border: 2px solid var(--blue);
+  width: 17.45px;
+  height: 17.45px;
+  border-radius: 50%;
+  transition: 0.2s;
+  
+}
+
+.container label input[type="checkbox"]:checked {
+color: white;
+border: var(--purple-dark);
+background-color: var(--purple-dark);
+}
+
+.container label input[type="checkbox"]:checked:hover {
+  background-color: var(--purple);
+}
+
+.container label input[type="checkbox"]:checked + span {
+  display: block;
+}
+
+
+.container label input[type="checkbox"]:hover {
+  border: 2px solid var(--blue-dark);
+  background: rgba(30, 111, 159, 0.2)
+ 
 }

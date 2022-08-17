@@ -1,14 +1,18 @@
 import React from 'react';
 import styles from './Task.module.css'
-import {Trash} from 'phosphor-react'
+import {Trash, Check} from 'phosphor-react'
 
 export const Task: React.FC = () => {
   return (
     <div className={styles.container}>
+      <label>
+
       <input type="checkbox"/>
-      <p>Olá, essa é a mensagem de task nº 1.</p>
+      <span><Check size={12} weight="bold"/></span>
+      </label>
+      <p>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</p>
       <button>
-        <Trash size={24}/>
+        <Trash size={16}/>
       </button>
 
     </div>
