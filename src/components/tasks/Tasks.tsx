@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import { stringify, v4 as uuidv4 } from 'uuid';
 import { ChangeEvent, FormEvent, FormEventHandler, FormHTMLAttributes, useState } from "react";
 import { NewTextTask } from "../newTextTasks/NewTextTask";
@@ -44,26 +44,28 @@ export const Tasks = () => {
       console.log(tasks, 'tasks') 
   }
 
-  const handleStatus = (status: boolean ) => {
-    if (status) {
-      console.log('entrou')
-      const newTasks = tasks.map(index => {
-        if (tasks[0].id === index.id) {
-          return {...index, status: 'done' as 'done' | 'toDo'}
-        }
-        console.log(index, 'index')
-        return index
-      }) 
-   
-      // vai retornar array somente com a task que quero alterar , você poderia tentar remover ela e depois incluir... mas deve ser arbitrário.
-      //  setTasks(newTasks) // Vai gerar uma nova renderização, e você deveria colcoar a função para ser executada no change
-    }
-    
-  } 
+  const handleStatus = (status: boolean, id : string) => {
+   const newT = tasks.map(task => {
+     if (task.id === id) {
+      return {...task, status: status ? 'done' : 'toDo' as 'toDo' | 'done'}
+     }
+      return task
+    })
+    setTasks(newT)
+  }
+
+  
+
+  useEffect(() => {
+    console.log(tasks, 'tasks')
+  },[tasks])
+
+
+  
 
   const createdCounterTask = tasks.length
   const completedCounterTask = tasks.filter(task => task.status === 'done').length
-  console.log(tasks, 'estado geral')
+  // console.log(tasks, 'estado geral')
   return (
     <section className={styles.container}>
      <NewTextTask
@@ -84,6 +86,8 @@ export const Tasks = () => {
                       key={task.id}
                       text={task.text}
                       handleStatus={handleStatus}
+                      status={task.status}
+                      id={task.id}
                     />
           }) : < TasksEmpty />
         }

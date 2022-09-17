@@ -1,25 +1,29 @@
-import { ChangeEvent, useRef, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import styles from './Task.module.css'
 import {Trash, Check} from 'phosphor-react'
 
 type TaskProps = {
   id?: string;
   text: string;
-  handleStatus: (status: boolean) => void;
+  status: 'toDo' | 'done';
+  handleStatus: (status: boolean, id : string) => void;
 }
 
 
 
-export const Task = ({text,handleStatus}: TaskProps) => {
+export const Task = ({text,handleStatus, id, status}: TaskProps) => {
   const [isDone, setIsDone] = useState(false)
 
   const toggleChecked = (event : ChangeEvent<HTMLInputElement>) => {
     const {target} = event
     if (target.checked) {
+
       setIsDone(true)
+
       return true
     }else {
       setIsDone(false)
+
       return false
     }
   }
@@ -28,14 +32,21 @@ export const Task = ({text,handleStatus}: TaskProps) => {
   // const handleDeleteTask = () =>{
   //   OnDeleteTask(text)
   // }
-  if( isDone === true) {
-   handleStatus(isDone)
-  }
 
+
+  useEffect(()=> {
+    if (id) {
+
+      handleStatus(isDone, id as string)
+    }
+    console.log(isDone, 'isDone')
+  }, [isDone])
+
+ 
   return (
     <div className={styles.container}>
       <label >
-      <input type="checkbox" onChange={toggleChecked}/>
+      <input type="checkbox" onChange={toggleChecked} />
       <span><Check size={12} weight="bold" /></span>
       </label>
       <p className={isDone ? styles.done : '' } >{text}</p>
