@@ -1,10 +1,9 @@
-import React from "react";
 import styles from "./TasksEmpty.module.css";
 
 import EmptyPot from '../../assets/Clipboard.png'
 
 
-export const TasksEmpty: React.FC = () => {
+export const TasksEmpty = () => {
 
   return (
    

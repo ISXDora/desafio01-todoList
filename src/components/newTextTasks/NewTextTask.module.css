@@ -46,6 +46,11 @@
   transition: ease-out 0.3s;
 }
 
-.container button:hover {
+
+.container button:disabled {
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+.container button:not(:disabled):hover {
   background: var(--blue);
 }

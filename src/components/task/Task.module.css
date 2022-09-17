@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  height: 4.5rem;
+  height: 100%;
   padding: 1rem;
   background: var(--gray-500);
   border: 1px solid var(--gay-400);
@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: row;
   gap: 0.75rem;
-  align-items: stretch;
+  align-items: center;
   justify-items: center;
   flex: 1.5rem 1fr 1.5rem;
 }
@@ -24,9 +24,12 @@
 }
 .container p {
   width: 100%;
+  height: 100%;
   font-size: 0.875rem;
   line-height: 1.225rem;
-  color: var(gray-100)
+  color: var(gray-100);
+
+  display: flex;
 }
 
 .container button{
@@ -38,8 +41,13 @@
   border-radius: 4px;
   cursor: pointer;
   align-items: center;
+  justify-content: center;
 
   transition: ease-in 0.3s;
+}
+
+.container button > svg{
+margin: 5px auto;
 }
 
 .container button:hover {
@@ -76,6 +84,9 @@
   
 }
 
+.container label input[type="checkbox"]:checked + span {
+  display: block;
+}
 .container label input[type="checkbox"]:checked {
 
 border: var(--purple-dark);
@@ -86,9 +97,6 @@ background-color: var(--purple-dark);
   background-color: var(--purple);
 }
 
-.container label input[type="checkbox"]:checked + span {
-  display: block;
-}
 
 .container label input[type="checkbox"]:hover {
   border: 2px solid rgba(30, 111, 159, 0.2);

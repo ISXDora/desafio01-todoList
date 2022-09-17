@@ -2,38 +2,8 @@
   min-height: 287px;
   width: 736px;
 }
-.header {
-  display: flex;
-  justify-content: space-between;
-  height: 1.188rem;
-  margin-bottom: 1.5rem;
-}
 
-.containerTitle{
-  display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-.containerTitle  strong {
-  font-size: 0.875rem;
-  color: var(--blue);
-  font-weight: 700;
-}
-.containerTitle .strongColorDone {
-  color: var(--purple)
-}
 .tasksContainer {
   border-top: 1px solid var(--gray-400);
 
-}
-.containerTitle span {
-  width: 1.563rem;
-  height: 1.188rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--gray-400);
-  font-size: 0.75rem;
-  font-weight: 700;
-  border-radius: 999px;
 }
