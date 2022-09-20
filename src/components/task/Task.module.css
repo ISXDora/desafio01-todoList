@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  height: 100%;
+  height: 4.5rem;
   padding: 1rem;
   background: var(--gray-500);
   border: 1px solid var(--gay-400);
@@ -9,10 +9,10 @@
 
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
   gap: 0.75rem;
-  align-items: center;
-  justify-items: center;
-  flex: 1.5rem 1fr 1.5rem;
+  border: 1px solid var(--gay-400)
 }
 .container + .container {
   margin-top: 0.75rem;
@@ -21,6 +21,7 @@
 .container input{
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
 .container p {
   width: 100%;
@@ -39,7 +40,6 @@
   height: 24px;
   color: var(--gray-300);
   border-radius: 4px;
-  cursor: pointer;
   align-items: center;
   justify-content: center;
 
@@ -47,14 +47,13 @@
 }
 
 .container button > svg{
-margin: 5px auto;
+line-height: 0;
 }
 
 .container button:hover {
 
   background: var(--gray-400);
-  color: var(--danger)
-
+  color: var(--danger);
 }
 
 .container > label {
@@ -63,6 +62,7 @@ margin: 5px auto;
   padding: 3.27px;
   align-items: center;
   position: relative;
+  cursor: pointer;
 
 }
 .container > label span {
@@ -71,6 +71,7 @@ margin: 5px auto;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  cursor: pointer;
   
 }
 

@@ -7,31 +7,29 @@ type TaskProps = {
   text: string;
   status: 'toDo' | 'done';
   handleStatus: (status: boolean, id : string) => void;
+  onDeleteTask: (id: string) => void;
 }
 
 
 
-export const Task = ({text,handleStatus, id, status}: TaskProps) => {
+export const Task = ({text,handleStatus, id, onDeleteTask}: TaskProps) => {
   const [isDone, setIsDone] = useState(false)
 
   const toggleChecked = (event : ChangeEvent<HTMLInputElement>) => {
     const {target} = event
     if (target.checked) {
-
       setIsDone(true)
-
-      return true
-    }else {
+    } else {
       setIsDone(false)
-
-      return false
     }
   }
 
 
-  // const handleDeleteTask = () =>{
-  //   OnDeleteTask(text)
-  // }
+  const handleDeleteTask = () =>{
+    if (id) {
+    onDeleteTask(id)
+    }
+  }
 
 
   useEffect(()=> {
@@ -50,7 +48,7 @@ export const Task = ({text,handleStatus, id, status}: TaskProps) => {
       <span><Check size={12} weight="bold" /></span>
       </label>
       <p className={isDone ? styles.done : '' } >{text}</p>
-      <button >
+      <button onClick={handleDeleteTask}>
         <Trash size={16}/>
       </button>
 

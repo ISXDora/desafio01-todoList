@@ -44,6 +44,7 @@
   cursor: pointer;
 
   transition: ease-out 0.3s;
+  line-height: 0;
 }
 
 

@@ -44,7 +44,7 @@ export const Tasks = () => {
       console.log(tasks, 'tasks') 
   }
 
-  const handleStatus = (status: boolean, id : string) => {
+  const handleStatusChange = (status: boolean, id : string) => {
    const newT = tasks.map(task => {
      if (task.id === id) {
       return {...task, status: status ? 'done' : 'toDo' as 'toDo' | 'done'}
@@ -60,7 +60,10 @@ export const Tasks = () => {
     console.log(tasks, 'tasks')
   },[tasks])
 
-
+  const handleDeleteTask = (id: string) => {
+    const newT = tasks.filter(task => task.id !== id)
+    setTasks(newT)
+  }
   
 
   const createdCounterTask = tasks.length
@@ -85,9 +88,10 @@ export const Tasks = () => {
             return <Task
                       key={task.id}
                       text={task.text}
-                      handleStatus={handleStatus}
+                      handleStatus={handleStatusChange}
                       status={task.status}
                       id={task.id}
+                      onDeleteTask={handleDeleteTask}
                     />
           }) : < TasksEmpty />
         }
