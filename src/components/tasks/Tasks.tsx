@@ -4,7 +4,7 @@ import { ChangeEvent, FormEvent, FormEventHandler, FormHTMLAttributes, useState 
 import { NewTextTask } from "../newTextTasks/NewTextTask";
 import { Task } from "../task/Task";
 import { TasksEmpty } from "../tasksEmpty/TasksEmpty";
-import { TasksManager } from "../TasksManager";
+import { TasksManager } from "../taskCounter/TasksManager"
 
 import styles from "./Tasks.module.css";
 
@@ -68,7 +68,6 @@ export const Tasks = () => {
 
   const createdCounterTask = tasks.length
   const completedCounterTask = tasks.filter(task => task.status === 'done').length
-  // console.log(tasks, 'estado geral')
   return (
     <section className={styles.container}>
      <NewTextTask

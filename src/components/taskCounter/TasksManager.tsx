@@ -1,7 +1,12 @@
+import React from "react";
 import styles from "./TasksManager.module.css";
 
+interface TasksManagerProps {
+  createdCounterTask: number;
+  completedCounterTask: number;
+}
 
-export const TasksManager = ({createdCounterTask, completedCounterTask}) => {
+export const TasksManager: React.FC<TasksManagerProps> = ({createdCounterTask, completedCounterTask}) => {
   return (
     <div className={styles.header}>
     <div className={styles.containerTitle}>
