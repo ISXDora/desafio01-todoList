@@ -48,7 +48,7 @@ export const Task = ({text,handleStatus, id, onDeleteTask}: TaskProps) => {
       <span><Check size={12} weight="bold" /></span>
       </label>
       <p className={isDone ? styles.done : '' } >{text}</p>
-      <button onClick={handleDeleteTask}>
+      <button onClick={handleDeleteTask} title="Deletar tarefa">
         <Trash size={16}/>
       </button>
 
