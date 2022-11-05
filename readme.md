@@ -1,15 +1,18 @@
 <img src='./Captura de tela de 2022-11-05 14-49-02.png'>
 
 # TodoList
-## Desafio 1 do treinamento Ignite - Rocketseat
+## Desafio> Praticando conceitos do treinamento Ignite - Rocketseat
 
 
 ### Tecnologias Utilizadas
 
-[x] - Vite 
-[x] - CSS Modules
-[x] - ReactJs
-[x] - Typescript
+- [x] Vite
+
+- [x] CSS Modules
+
+- [x] ReactJs
+
+- [x] Typescript
 
 ### Maiores Desafios 
 
