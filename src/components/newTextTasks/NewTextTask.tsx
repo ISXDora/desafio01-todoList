@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, FormEventHandler, FormHTMLAttributes, InvalidEvent, useState } from "react";
+import { ChangeEvent, FormEvent, FormEventHandler, FormHTMLAttributes, InvalidEvent, useState } from "react";
 import styles from "./NewTextTask.module.css"
 import {PlusCircle}  from "phosphor-react";
 
@@ -9,7 +9,7 @@ interface NewTextTask {
 }
 
 
-export const NewTextTask: React.FC<NewTextTask> = ({newText, handleNewText, handleSubmit}) => {
+export const NewTextTask= ({newText, handleNewText, handleSubmit}: NewTextTask) => {
 
   const textEmpty = newText.length === 0 
  

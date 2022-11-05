@@ -3,16 +3,16 @@ import styles from './Task.module.css'
 import {Trash, Check} from 'phosphor-react'
 
 type TaskProps = {
-  id?: string;
+  id: string;
   text: string;
   status: 'toDo' | 'done';
-  handleStatus: (status: boolean, id : string) => void;
+  handleStatus: (status: boolean, id: string) => void;
   onDeleteTask: (id: string) => void;
 }
 
 
 
-export const Task = ({text,handleStatus, id, onDeleteTask}: TaskProps) => {
+export const Task = ({text,handleStatus,onDeleteTask, id}: TaskProps) => {
   const [isDone, setIsDone] = useState(false)
 
   const toggleChecked = (event : ChangeEvent<HTMLInputElement>) => {
@@ -26,18 +26,14 @@ export const Task = ({text,handleStatus, id, onDeleteTask}: TaskProps) => {
 
 
   const handleDeleteTask = () =>{
-    if (id) {
     onDeleteTask(id)
-    }
   }
 
 
   useEffect(()=> {
-    if (id) {
 
-      handleStatus(isDone, id as string)
-    }
-    console.log(isDone, 'isDone')
+      handleStatus(isDone, id)
+
   }, [isDone])
 
  

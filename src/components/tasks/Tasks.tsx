@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
+import { useEffect} from 'react';
 import { stringify, v4 as uuidv4 } from 'uuid';
 import { ChangeEvent, FormEvent, FormEventHandler, FormHTMLAttributes, useState } from "react";
 import { NewTextTask } from "../newTextTasks/NewTextTask";
@@ -9,7 +9,7 @@ import { TasksManager } from "../taskCounter/TasksManager"
 import styles from "./Tasks.module.css";
 
 export interface TaskProps {
-  id?: string;
+  id: string;
   text: string;
   status: 'toDo' | 'done';
 }
@@ -24,15 +24,13 @@ export const Tasks = () => {
   const [tasks, setTasks] = useState<TaskProps[]>([])
   const [newText, setNewText] = useState('')
 
-
-
   const handleNewText = (event: ChangeEvent<HTMLInputElement>) => {
       const {target} = event
       setNewText(target.value)
   }
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault()
-      setTasks([...tasks, 
+      setTasks(state => [...state, 
         {
           id: uuidv4(),
           text: newText,
@@ -40,8 +38,6 @@ export const Tasks = () => {
         }
       ])
       setNewText('')
-
-      console.log(tasks, 'tasks') 
   }
 
   const handleStatusChange = (status: boolean, id : string) => {
@@ -54,20 +50,13 @@ export const Tasks = () => {
     setTasks(newT)
   }
 
-  
-
-  useEffect(() => {
-    console.log(tasks, 'tasks')
-  },[tasks])
-
   const handleDeleteTask = (id: string) => {
-    const newT = tasks.filter(task => task.id !== id)
-    setTasks(newT)
+    const deletedTask = tasks.filter(task => task.id !== id)
+    setTasks(deletedTask)
   }
   
-
-  const createdCounterTask = tasks.length
-  const completedCounterTask = tasks.filter(task => task.status === 'done').length
+  const totalTaskCounter = tasks.length
+  const completeTaskCounter = tasks.filter(task => task.status === 'done').length
   return (
     <section className={styles.container}>
      <NewTextTask
@@ -76,8 +65,8 @@ export const Tasks = () => {
         handleSubmit={handleSubmit}
      />
      <TasksManager 
-      createdCounterTask={createdCounterTask}
-      completedCounterTask={completedCounterTask}
+      totalTaskCounter={totalTaskCounter}
+      completeTaskCounter={completeTaskCounter}
 
      />
       <div className={styles.tasksContainer}>

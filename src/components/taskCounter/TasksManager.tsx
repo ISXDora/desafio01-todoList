@@ -2,20 +2,20 @@ import React from "react";
 import styles from "./TasksManager.module.css";
 
 interface TasksManagerProps {
-  createdCounterTask: number;
-  completedCounterTask: number;
+  totalTaskCounter: number;
+  completeTaskCounter: number;
 }
 
-export const TasksManager: React.FC<TasksManagerProps> = ({createdCounterTask, completedCounterTask}) => {
+export const TasksManager: React.FC<TasksManagerProps> = ({totalTaskCounter, completeTaskCounter}) => {
   return (
     <div className={styles.header}>
     <div className={styles.containerTitle}>
       <strong>Tarefas criadas </strong>
-      <span>{createdCounterTask}</span>
+      <span>{totalTaskCounter}</span>
     </div>
     <div className={styles.containerTitle}>
       <strong className={styles.strongColorDone}>Concluídas</strong>
-      <span>{completedCounterTask} de {createdCounterTask}</span>
+      <span>{completeTaskCounter} de {totalTaskCounter}</span>
     </div>
   </div>
   )
