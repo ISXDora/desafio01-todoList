@@ -1,6 +1,5 @@
-import { useEffect} from 'react';
-import { stringify, v4 as uuidv4 } from 'uuid';
-import { ChangeEvent, FormEvent, FormEventHandler, FormHTMLAttributes, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
+import { ChangeEvent, FormEvent,useState } from "react";
 import { NewTextTask } from "../newTextTasks/NewTextTask";
 import { Task } from "../task/Task";
 import { TasksEmpty } from "../tasksEmpty/TasksEmpty";

@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, FormEventHandler, FormHTMLAttributes, InvalidEvent, useState } from "react";
+import { ChangeEvent, FormEvent} from "react";
 import styles from "./NewTextTask.module.css"
 import {PlusCircle}  from "phosphor-react";
 
@@ -12,7 +12,15 @@ interface NewTextTask {
 export const NewTextTask= ({newText, handleNewText, handleSubmit}: NewTextTask) => {
 
   const textEmpty = newText.length === 0 
+
+  const handleNewTextTaskInvalid = (event: ChangeEvent<HTMLInputElement>) => {
+    event.target.setCustomValidity('Este campo é obrigatório!')
+  }
  
+  const removeMessageInvalidTask = (event: ChangeEvent<HTMLInputElement>) => {
+    event.target.setCustomValidity('')
+
+  }
   return (
     <form onSubmit={handleSubmit}>
     <div className={styles.container}>
@@ -21,11 +29,11 @@ export const NewTextTask= ({newText, handleNewText, handleSubmit}: NewTextTask) 
         placeholder="Adicione uma nova tarefa"
         onChange={handleNewText}
         value={newText}       
-        // onInput={removeMessageInvalidTask}
-        // onInvalid={handleNewTextTaskInvalid}
+        onInput={removeMessageInvalidTask}
+        onInvalid={handleNewTextTaskInvalid}
         required
       />
-      <button type="submit" disabled={textEmpty}>
+      <button type="submit" disabled={textEmpty} >
         Criar<PlusCircle size={16} weight={"bold"} color="#F2F2F2" />
       </button>
     </div>
